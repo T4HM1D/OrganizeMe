@@ -16,8 +16,9 @@ def pickDictionary(ext): # takes in a extension type
     return "MISC" # if filetype doesn't exist in dictionary
 
 def organiseDirectory():
+    # cwd = Path()
     for item in os.scandir(): # os.scandir iterator object all the items in the current working directory
-        if item.is_dir() or item.name == Path(__file__).name: # if item is directory or the script itself, skip it
+        if item.is_dir() or item.name == Path(__file__).name or item.name == ".gitignore": # if item is directory or the script itself, skip it
             continue
         filePath = Path(item) # Returns relative path of the item.
         fileType = filePath.suffix.lower() # Returns the string value of the suffix of the items
