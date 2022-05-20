@@ -1,2 +1,5 @@
 #ignore all folders
-*/ 
+*/
+
+#ignore all files/folders with name random
+Random*
