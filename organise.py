@@ -23,7 +23,7 @@ def organiseDirectory():
         fileType = filePath.suffix.lower() # Returns the string value of the suffix of the items
         dictionary = pickDictionary(fileType) # calls pickDiectory function, returns the category of the filetype
         dictionaryPath = Path(dictionary) # creates a path for the category.
-        if dictionaryPath.is_dir() == False: 
+        if not dictionaryPath.is_dir(): 
             dictionaryPath.mkdir() # If category directory doesn't exist, make it.
         filePath.rename(dictionaryPath.joinpath(filePath)) # moves file into the category directory
 
