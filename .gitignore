@@ -3,3 +3,4 @@
 
 #ignore all files/folders with name random
 Random*
+!README.md

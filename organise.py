@@ -5,7 +5,7 @@ SUBDIRECTORIES = {
     "DOCUMENTS": ['.pdf','.rtf','.txt'],
     "AUDIO": ['.m4a','.m4b','.mp3'],
     "VIDEOS": ['.mov','.avi','.mp4'],
-    "IMAGES": ['.jpg','.jpeg','.png']
+    "IMAGES": ['.jpg','.jpeg','.png','.gif']
 }
 
 def pickDictionary(ext): # takes in a extension type
