@@ -16,12 +16,13 @@ def pickDictionary(ext): # takes in a extension type
     return "MISC" # if filetype doesn't exist in dictionary
 
 def organiseDirectory():
-    if not Path(__file__).absolute().name == 'Download':
+    print('Script is running in {} folder'.format(Path(__file__).absolute().parent.name))
+    if not Path(__file__).absolute().parent.name == 'Downloads':
         cwd = Path(__file__).absolute().parents[1]
-        print('script is in a download sub-folder:', cwd)
+        print('Sub-directories will be made above sub-folder in:', cwd)
     else:
-        cwd = Path(__file__).absolute()
-        print('script is in download folder:', cwd)
+        cwd = Path(__file__).absolute().parent
+        print('Sub-directories will be made in download folder:', cwd)
     for item in cwd.iterdir(): # os.scandir iterator object all the items in the current working directory / can also use pathlib.Path.itdir()
         if item.is_dir() or item.name == Path(__file__).name or item.name == ".gitignore" or item.name == "README.md": # if item is directory or the script itself, skip it
             continue
@@ -32,7 +33,7 @@ def organiseDirectory():
         if not dictionaryPath.is_dir(): 
             dictionaryPath.mkdir() # If category directory doesn't exist, make it.
         newPath = dictionaryPath.joinpath(filePath.name)
-        # filePath.rename(newPath) # moves file into the category directory
-        print(Path(item))
-        print(newPath)
+        filePath.rename(newPath) # moves file into the category directory
+        print('Old Directory: ', Path(item))
+        print('New Directory', newPath)
 organiseDirectory()
