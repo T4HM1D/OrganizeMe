@@ -16,12 +16,12 @@ def pickDictionary(ext): # takes in a extension type
     return "MISC" # if filetype doesn't exist in dictionary
 
 def organiseDirectory():
-    print('Script is running in {} folder'.format(Path(__file__).absolute().parent.name))
+    print('Script is running in {} folder'.format(Path(__file__).absolute().parent.name)) # Check which folder script is running from.
     if not Path(__file__).absolute().parent.name == 'Downloads':
-        cwd = Path(__file__).absolute().parents[1]
+        cwd = Path(__file__).absolute().parents[1] # Sets cwd to 1 folder above the folder the script is in.
         print('Sub-directories will be made above sub-folder in:', cwd)
     else:
-        cwd = Path(__file__).absolute().parent
+        cwd = Path(__file__).absolute().parent # Sets cwd to current folder the script is in.
         print('Sub-directories will be made in download folder:', cwd)
     for item in cwd.iterdir(): # os.scandir iterator object all the items in the current working directory / can also use pathlib.Path.itdir()
         if item.is_dir() or item.name == Path(__file__).name or item.name == ".gitignore" or item.name == "README.md": # if item is directory or the script itself, skip it
